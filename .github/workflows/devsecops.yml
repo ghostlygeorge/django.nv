@@ -24,6 +24,16 @@ jobs:
     options:
       allow_failure: true 
 
+  create-artifact:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - run: echo "hello world" > artifact.txt
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: artifact.txt
+
   prod:
     runs-on: ubuntu-20.04
     steps:

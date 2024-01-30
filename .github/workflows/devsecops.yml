@@ -20,6 +20,9 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - run: echo "This is an integration step"
+      - rub: exit 1
+        continue-on-error: true
+     
 
   create-artifact:
     runs-on: ubuntu-latest

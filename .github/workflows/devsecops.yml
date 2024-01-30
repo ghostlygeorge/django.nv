@@ -21,7 +21,6 @@ jobs:
     steps:
       - run: echo "This is an integration step"
       - run: exit 1
-    options:
       allow_failure: true
 
   create-artifact:

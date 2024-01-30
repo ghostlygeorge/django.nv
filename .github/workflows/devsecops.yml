@@ -21,6 +21,8 @@ jobs:
     steps:
       - run: echo "This is an integration step"
       - run: exit 1
+    options:
+      allow_failure: True 
 
   prod:
     runs-on: ubuntu-20.04

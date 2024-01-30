@@ -1,7 +1,7 @@
 name: Django                                  # workflow name
 
 on:
-  push:                                       
+  push:
     branches:                                 # similar to "only" in GitLab
       - main
 
@@ -22,13 +22,13 @@ jobs:
       - run: echo "This is an integration step"
       - run: exit 1
     options:
-      allow_failure: true 
+      allow_failure: true
 
   create-artifact:
     runs-on: ubuntu-latest
-    
     steps:
       - run: echo "hello world" > artifact.txt
+      - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: my-artifact
@@ -38,3 +38,4 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - run: echo "This is a deploy step"
+

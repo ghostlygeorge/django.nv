@@ -69,15 +69,15 @@ jobs:
           path: trufflehog-output.json
         if: always()
 
-    integration:
-      runs-on: ubuntu-20.04
-      needs: 
-        - test
-        - secret_scanning
-      steps:
-        - run: echo "Integrate this"
-        - run: exit 1
-          continue-on-error: true
+  integration:
+    runs-on: ubuntu-20.04
+    needs: 
+      - test
+      - secret_scanning
+    steps:
+      - run: echo "Integrate this"
+      - run: exit 1
+        continue-on-error: true
   
 
   prod:

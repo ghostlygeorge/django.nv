@@ -64,6 +64,19 @@ jobs:
       - run: exit 1
         continue-on-error: true
 
+  secret_scanning:
+    runs-on: ubuntu:20.04
+    needs: test
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker run --rm -d -v $(pwd):/src hysnsec/trufflehog filesystem --directory=/src --json > trufflehog-output.json
+      - uses: actions/upload-artifact@v2
+        with: 
+          name: Trufflehog
+          path: trufflehog-output.json
+        if: always()
+        continue-on-error: true
+
   prod:
     runs-on: ubuntu-20.04
     needs: integration
